@@ -21,7 +21,6 @@ yarn-error.log*
 # node_modules and their subdirectories
 node_modules
 
-# the .next folder
 .next
 
 
