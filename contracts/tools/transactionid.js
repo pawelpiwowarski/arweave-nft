@@ -1,0 +1,1 @@
+export const contractTxId = "0RMBRnB5jMLUg2pSwxFz6gYgtlNil2BEx9o73cCww04"
