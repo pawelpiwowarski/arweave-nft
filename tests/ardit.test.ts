@@ -1,6 +1,6 @@
 import ArLocal from 'arlocal';
 import { JWKInterface } from 'arweave/node/lib/wallet';
-import { getTag, LoggerFactory, Warp, WarpFactory, SmartWeaveTags } from 'warp-contracts';
+import {  LoggerFactory, Warp, WarpFactory, SmartWeaveTags } from 'warp-contracts';
 import {
   AtomicNFTState,
   connectAtomicNFT,
@@ -44,9 +44,9 @@ describe('Testing the Atomic NFT Token', () => {
 
     warp = WarpFactory.forLocal(1820);
 
-    ({ jwk: ownerWallet, address: owner } = await warp.testing.generateWallet());
-    ({ jwk: user2Wallet, address: user2 } = await warp.testing.generateWallet());
-    ({ jwk: user3Wallet, address: user3 } = await warp.testing.generateWallet());
+    ({ jwk: ownerWallet, address: owner } = await warp.generateWallet());
+    ({ jwk: user2Wallet, address: user2 } = await warp.generateWallet());
+    ({ jwk: user3Wallet, address: user3 } = await warp.generateWallet());
 
     initialState = {
       description: 'This is the test of Atomic NFT token',
