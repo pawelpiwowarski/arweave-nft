@@ -21,8 +21,8 @@ const [res, setRes] = useState<string | null>(null);
       }
     });
 
-    const {name} = (await response.json());
-    setRes(name);
+    setRes(await res.json());
+
   }
 
   return (

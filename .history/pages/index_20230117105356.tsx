@@ -14,15 +14,13 @@ const [res, setRes] = useState<string | null>(null);
     setAddress(await window.arweaveWallet.getActiveAddress());
 
     // fetch the data from local endpoint
-    const response = await fetch('http://localhost:3000/api/hello', {
+    setRes(await fetch('http://localhost:3000/api/hello', {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json'
       }
-    });
+    }));
 
-    const {name} = (await response.json());
-    setRes(name);
   }
 
   return (

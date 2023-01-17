@@ -22,7 +22,7 @@ const [res, setRes] = useState<string | null>(null);
     });
 
     const {name} = (await response.json());
-    setRes(name);
+    console.log(response_to_json.name)
   }
 
   return (
