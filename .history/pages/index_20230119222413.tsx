@@ -1,5 +1,5 @@
 import { useState } from "react";
-import connectToContract from '../configureWarpClient'
+import getContract from '../configureWarpClient'
 
 
 function HomePage() {
@@ -7,19 +7,6 @@ function HomePage() {
 const [name, setName] = useState<string | null>(null);
 const [description, setDescription] = useState<string | null>(null);
 const [buffer, setFile] = useState<Buffer | null>(null);
-
-
-
-  async function handleSubmision(event: any) {
-    // prevent fromm re
-    event.preventDefault();
-    const contract = await connectToContract();
-    console.log(address)
-
-    console.log(name);
-    console.log(description);
-    console.log(buffer);
-  }
   async function handleFile() {
     const file = document.getElementById('file') as HTMLInputElement;
 
@@ -31,6 +18,7 @@ const [buffer, setFile] = useState<Buffer | null>(null);
     reader.onload = async () => {
       const buffer = reader.result as ArrayBuffer;
       const fileBuffer = Buffer.from(buffer);
+      console.log(fileBuffer);
       setFile(fileBuffer);
     };
 
@@ -48,7 +36,7 @@ const [buffer, setFile] = useState<Buffer | null>(null);
 
       
       <h1 className="text-3xl font-bold underline" >Mint Your Atomic NFT using Smartweave </h1>
-      <form>
+      <form onSubmit={getContract}>
   <div className="flex flex-col m-4">
     <label className="text-lg font-medium mb-2" >Name:</label>
     <input className="bg-white focus:outline-none focus:shadow-outline-blue border border-gray-300 rounded-lg py-2 px-4 block w-full leading-5"
@@ -62,11 +50,7 @@ const [buffer, setFile] = useState<Buffer | null>(null);
   <div className="flex flex-col m-4">
     <label className="text-lg font-medium mb-2" >Description:</label>
     <textarea className="bg-white focus:outline-none focus:shadow-outline-blue border border-gray-300 rounded-lg py-2 px-4 block w-full leading-5" 
-    id="description" name="description" placeholder="Enter NFT description" onChange = {(e)=> {
-        
-        setDescription(e.target.value);
-  
-    }}required></textarea>
+    id="description" name="description" placeholder="Enter NFT description" required></textarea>
   </div>
 
   <div className="flex flex-col m-4">
@@ -76,8 +60,7 @@ const [buffer, setFile] = useState<Buffer | null>(null);
   </div>
 
   <div className="flex justify-center">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" onSubmit={handleSubmision}>
-      
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">
       Mint NFT
     </button>
   </div>

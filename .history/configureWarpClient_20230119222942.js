@@ -5,7 +5,7 @@ const transactionId = "o9u_KYD5-Tn-VRmeNAic0kdFqrLLz0bYgMu9COr7Gk0";
 let warp;
 let contract;
 
-async function connectToContract() {
+async function getContract() {
   warp = WarpFactory.forMainnet();
 
   // obtain the signature from the user who is using ArConnect wallet
@@ -21,4 +21,4 @@ async function connectToContract() {
   return { transactionId, contract };
 }
 
-export default connectToContract;
+export default getContract;

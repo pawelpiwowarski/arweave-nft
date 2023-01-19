@@ -1,0 +1,13 @@
+
+
+body {
+
+
+    background: lightblue url("https://pbs.twimg.com/media/FlzDzwWaEAAjCkV.jpg") no-repeat fixed center;
+
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

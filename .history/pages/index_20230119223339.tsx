@@ -10,12 +10,10 @@ const [buffer, setFile] = useState<Buffer | null>(null);
 
 
 
-  async function handleSubmision(event: any) {
-    // prevent fromm re
-    event.preventDefault();
+  async function handleSubmision() {
     const contract = await connectToContract();
     console.log(address)
-
+    console.log(contract);
     console.log(name);
     console.log(description);
     console.log(buffer);

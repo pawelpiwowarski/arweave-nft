@@ -10,12 +10,12 @@ const [buffer, setFile] = useState<Buffer | null>(null);
 
 
 
-  async function handleSubmision(event: any) {
+  async function handleSubmision(event: React.FormEvent<HTMLFormElement>)) {
     // prevent fromm re
     event.preventDefault();
     const contract = await connectToContract();
     console.log(address)
-
+    console.log(contract);
     console.log(name);
     console.log(description);
     console.log(buffer);
@@ -76,7 +76,9 @@ const [buffer, setFile] = useState<Buffer | null>(null);
   </div>
 
   <div className="flex justify-center">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" onSubmit={handleSubmision}>
+    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit" onSubmit={(e)=> {
+      handleSubmision(e);
+    }}>
       
       Mint NFT
     </button>

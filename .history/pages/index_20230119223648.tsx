@@ -15,7 +15,7 @@ const [buffer, setFile] = useState<Buffer | null>(null);
     event.preventDefault();
     const contract = await connectToContract();
     console.log(address)
-
+    console.log(contract);
     console.log(name);
     console.log(description);
     console.log(buffer);

@@ -13,7 +13,6 @@ const [buffer, setFile] = useState<Buffer | null>(null);
   async function handleSubmision(event: any) {
     // prevent fromm re
     event.preventDefault();
-    const contract = await connectToContract();
     console.log(address)
 
     console.log(name);
