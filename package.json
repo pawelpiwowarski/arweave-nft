@@ -1,0 +1,49 @@
+{
+  "name": "arwaeve-nft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawelpiwowarski/arweave-nft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pawelpiwowarski/arweave-nft/issues"
+  },
+  "homepage": "https://github.com/pawelpiwowarski/arweave-nft#readme",
+  "dependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "@bundlr-network/client": "^0.9.11",
+    "arlocal": "^1.1.60",
+    "file-type": "^18.2.0",
+    "form-data": "^4.0.0",
+    "formidable": "^2.1.1",
+    "fs": "^0.0.1-security",
+    "jest": "^29.3.1",
+    "next": "^13.1.2",
+    "next-auth": "^4.19.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.4",
+    "warp-contracts": "^1.2.46"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.5",
+    "@types/react": "18.0.26",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  }
+}

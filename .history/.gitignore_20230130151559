@@ -18,9 +18,8 @@ yarn-error.log*
 *.sw?
 # all json files except package.json
 
-
-*.json
 !package.json
+*.json
 # node_modules and their subdirectories
 node_modules
 
