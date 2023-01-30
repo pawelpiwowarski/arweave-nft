@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+
   "scripts": {
+    "bui;d": "next build",
+    "start": "next start",
     "dev": "next dev"
   },
   "repository": {
