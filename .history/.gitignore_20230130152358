@@ -1,4 +1,3 @@
-.env
 .DS_Store
 node_modules
 /dist
@@ -43,3 +42,4 @@ yalc.lock
 warp
 
 # add .env files to .gitignore if you use them
+.env
