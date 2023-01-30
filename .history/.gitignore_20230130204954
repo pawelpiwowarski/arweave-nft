@@ -26,7 +26,6 @@ yarn-error.log*
 *.json
 !package.json
 !tsconfig.json
-!package-lock.json
 # node_modules and their subdirectories
 node_modules
 
