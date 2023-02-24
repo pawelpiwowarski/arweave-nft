@@ -1,4 +1,5 @@
 import { WarpFactory } from "warp-contracts";
+const arweave =  require("arweave");
 
 let warp;
 
@@ -21,7 +22,12 @@ async function connectToContract() {
 }
 
 
+const create_transaction = async () => {
+  const tx = await arweave.createTransaction({});
 
+
+  }
+ 
     
 
 

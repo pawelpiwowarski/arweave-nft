@@ -1,4 +1,5 @@
 import { WarpFactory } from "warp-contracts";
+const arweave =  require("arweave");
 
 let warp;
 

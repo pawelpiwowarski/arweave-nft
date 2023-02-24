@@ -1,5 +1,6 @@
 import { WarpFactory } from "warp-contracts";
 
+
 let warp;
 
 
@@ -16,13 +17,7 @@ async function connectToContract() {
 
   const address = await window.arweaveWallet.getActiveAddress();
   return { address };
-
-
 }
-
-
-
-    
 
 
 

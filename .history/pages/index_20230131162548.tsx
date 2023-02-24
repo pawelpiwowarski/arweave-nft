@@ -1,7 +1,7 @@
 import { useState } from "react";
 import connectToContract from '../configureWarpClient'
 import FormData from "form-data";
-import Arweave from 'arweave';
+import arweave from 'arweave';
 
 function HomePage() {
 
@@ -11,47 +11,33 @@ const [image, setImage] = useState<string | null>(null);
 const [description, setDescription] = useState<string | null>(null);
 const [loading, setLoading] = useState<boolean>(false);
 
-const arweave = Arweave.init({});
+
 
   async function handleSubmision(event: any) {
     setLoading(true);
     const file = document.getElementById('file') as HTMLInputElement;
+    await arweave.createTransaction({
+      data: '<html><head><meta charset="UTF-8"><title>Hello world!</title></head><body></body></html>'
 
-   
+    });
     // prevent fromm re
     event.preventDefault();
     const {address} = await connectToContract();
-    console.log(address);
-    const transaction = await arweave.createTransaction({
-      data: '<html><head><meta charset="UTF-8"><title>Hello world!</title></head><body></body></html>'
+    console.log(file.files[0])
+    const formData = new FormData() as any;
+    formData.append('address', address);
+    formData.append('blob', file.files[0]);
+    formData.append('name', name);
+    formData.append('description', description);
 
-    })
-    transaction.addTag('Content-Type', 'text/html');
-    transaction.addTag('key2', 'value2');
-
-    await arweave.transactions.sign(transaction)
-
-    const response = await arweave.transactions.post(transaction)
-
-    console.log(response.status)
-
-
-
-    //console.log(file.files[0])
-    //const formData = new FormData() as any;
-    //formData.append('address', address);
-    //formData.append('blob', file.files[0]);
-    //formData.append('name', name);
-    //formData.append('description', description);
-
-    //const respoonse  = await fetch('/api/mint', { method: 'POST', body: formData });
+    const respoonse  = await fetch('/api/mint', { method: 'POST', body: formData });
 
     
-    //const {image, contract} = await respoonse.json();
-    //console.log(image, contract);
-    //setContract(contract);
-    //setImage(image);
-    //setLoading(false);
+    const {image, contract} = await respoonse.json();
+    console.log(image, contract);
+    setContract(contract);
+    setImage(image);
+    setLoading(false);
     
   }
   async function handleFile() {
@@ -97,7 +83,7 @@ const arweave = Arweave.init({});
 
 
   <div className="flex flex-col m-4">
-    <label className="text-lg font-medium mb-2" >File: (currently max 100kb) </label>
+    <label className="text-lg font-medium mb-2" >File:</label>
     <input className="bg-white focus:outline-none focus:shadow-outline-blue border border-gray-300 rounded-lg py-2 px-4 block w-full leading-5"
      type="file" id="file" name="file" onChange={handleFile} placeholder="Select NFT file" required/>
   </div>

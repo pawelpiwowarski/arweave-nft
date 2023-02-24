@@ -21,19 +21,12 @@ const arweave = Arweave.init({});
     // prevent fromm re
     event.preventDefault();
     const {address} = await connectToContract();
-    console.log(address);
-    const transaction = await arweave.createTransaction({
-      data: '<html><head><meta charset="UTF-8"><title>Hello world!</title></head><body></body></html>'
-
+    const tx = await arweave.createTransaction({
+      target: '1seRanklLU_1VTGkEk7P0xAwMJfA7owA1JHW5KyZKlY',
+      quantity: arweave.ar.arToWinston('10.5')
     })
-    transaction.addTag('Content-Type', 'text/html');
-    transaction.addTag('key2', 'value2');
-
-    await arweave.transactions.sign(transaction)
-
-    const response = await arweave.transactions.post(transaction)
-
-    console.log(response.status)
+    console.log(tx)
+    await window.arweaveWallet.sign(tx);
 
 
 
@@ -97,7 +90,7 @@ const arweave = Arweave.init({});
 
 
   <div className="flex flex-col m-4">
-    <label className="text-lg font-medium mb-2" >File: (currently max 100kb) </label>
+    <label className="text-lg font-medium mb-2" >File:</label>
     <input className="bg-white focus:outline-none focus:shadow-outline-blue border border-gray-300 rounded-lg py-2 px-4 block w-full leading-5"
      type="file" id="file" name="file" onChange={handleFile} placeholder="Select NFT file" required/>
   </div>
